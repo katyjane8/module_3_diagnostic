@@ -7,12 +7,12 @@ class SearchController < ApplicationController
     #   faraday.adapter Faraday.default_adapter
     # end
     #
-    response = Faraday.get("http://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=E85,ELEC&zipcode=90210&limit=1&api_key=#{ENV["nrel_key"]}&format=JSON")
+    response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1.json?zipcode=90210&limit=1&api_key=#{ENV["nrel_key"]}&format=JSON")
     #
-    results = JSON.parse(response.body, symbolize_names: true)[:results]
-    # #
-    @fuels  = results.map do |result|
-       FuelStations.new(result)
+    results = JSON.parse(response.body, symbolize_names: true)
+
+    @fuels = results.map do |result|
+      FuelStations.new(result)
     end
   end
 end
