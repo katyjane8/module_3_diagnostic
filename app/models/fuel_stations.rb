@@ -1,12 +1,13 @@
 class FuelStations
-  attr_reader :name,
-              :address,
-              :fuel_type,
+  attr_reader :station_name,
+              :street_address,
+              :fuel_type_code,
               :distance,
               :access_times
 
-  def initialize(attributes = {})
-    @name = attributes[:name]
+  def initialize(attributes)
+    byebug
+    @station_name = attributes[:station_name]
     @address = attributes[:address]
     @fuel_type = attributes[:fuel_type]
     @distance = attributes[:distance]
