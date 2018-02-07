@@ -1,1 +1,9 @@
-
+<% @fuels.each do |fuel| %>
+<ul class="fuel">
+  <li class="name"><%= fuel.name %></li>
+  <li class="address"><%= fuel.address %></li>
+  <li class="fuel_type"><%= fuel.fuel_type %></li>
+  <li class="distance"><%= fuel.distance %></li>
+  <li class="access_times"><%= fuel.access_times %></li>
+</ul>
+<% end %>
