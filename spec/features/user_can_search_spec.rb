@@ -9,7 +9,7 @@ feature "User can visit root page and search with form for zip code" do
     click_on "Locate"
 
     expect(current_path).to eq("/search")
-    expect(response.body).to match '"total_results": 23389,'
+    expect(page).to have_content("7 Results")
   end
 end
 
