@@ -1,0 +1,3 @@
+class Fuel
+
+end 
