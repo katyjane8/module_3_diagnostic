@@ -4,12 +4,12 @@ feature "User can visit root page and search with form for zip code" do
   scenario "should be on page '/search' with parameters visible" do
     visit "/"
 
-    fill_in "zipcode[zipcode]", with: 90210
+    fill_in "q", with: 90210
 
     click_on "Locate"
 
-    expect(current_page).to eq("/search")
-    expect(page).to have_content("params")
+    expect(current_path).to eq("/search")
+    expect(response.body).to match '"total_results": 23389,'
   end
 end
 
